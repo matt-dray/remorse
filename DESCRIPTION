@@ -1,6 +1,6 @@
 Package: remorse
 Title: Translate Text to Morse to Sound
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Matt", "Dray", , "mwdray@gmail.com", role = c("aut", "cre"))
 Description: Converts a string input to Morse Code and back. Plays the Morse
     Code as audible dits and dahs (dots and dashes).

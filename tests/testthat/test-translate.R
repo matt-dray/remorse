@@ -1,7 +1,7 @@
 
 test_that("only length 1 character vectors accepted in txt2morse", {
 
-  expect_identical(txt2morse("hello"), ".... . .-.. .-.. ---")
+  expect_identical(txt2morse("hi there!"), "..../.. -/...././.-././-.-.--")
   expect_error(txt2morse(string = c("x", "y")))
   expect_error(txt2morse(string = 1))
   expect_error(txt2morse(string = 1:2))
@@ -13,7 +13,7 @@ test_that("only length 1 character vectors accepted in txt2morse", {
 
 test_that("only length 1 character vectors accepted in morse2*", {
 
-  expect_identical(morse2txt(".... . .-.. .-.. ---"), "HELLO")
+  expect_error(morse2txt(string = c("..../../", "/-/...././.-././-.-.--")))
   expect_error(morse2txt(string = c("x", "y")))
   expect_error(morse2txt(string = 1))
   expect_error(morse2txt(string = 1:2))
@@ -21,7 +21,7 @@ test_that("only length 1 character vectors accepted in morse2*", {
   expect_error(morse2txt(string = NULL))
   expect_error(morse2txt(string = list(x = 1, y = 1)))
 
-  expect_invisible(morse2sfx(".... . .-.. .-.. ---", play = FALSE))
+  expect_error(morse2sfx(string = c("..../../", "/-/...././.-././-.-.--"), play = FALSE))
   expect_error(morse2sfx(string = c("x", "y")))
   expect_error(morse2sfx(string = 1))
   expect_error(morse2sfx(string = 1:2))
@@ -31,13 +31,13 @@ test_that("only length 1 character vectors accepted in morse2*", {
 
 })
 
-test_that("only '.', '-' and ' ' accepted in morse2*", {
+test_that("only '.', '-', '/' and ' ' accepted in morse2*", {
 
-  expect_identical(morse2txt(string = ".... . .-.. .-.. ---"), "HELLO")
+  expect_identical(morse2txt(string = "..../.. -/...././.-././-.-.--"), "HI THERE!")
   expect_error(morse2txt(string = "x .... . .-.. .-.. ---"))
 
-  expect_invisible(morse2sfx(string = ".... . .-.. .-.. ---", play = FALSE))
-  expect_error(morse2sfx(string = "x .... . .-.. .-.. ---"))
+  expect_invisible(morse2sfx(string = "..../.. -/...././.-././-.-.--", play = FALSE))
+  expect_error(morse2sfx(string = "x ..../.. -/...././.-././-.-.--"))
 
 })
 

@@ -22,7 +22,7 @@ library(remorse)
 [![Codecov test coverage](https://codecov.io/gh/matt-dray/remorse/branch/main/graph/badge.svg)](https://app.codecov.io/gh/matt-dray/remorse?branch=main)
 <!-- badges: end -->
 
-Use R to convert text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) (and vice versa) to sound.
+Use R to convert text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) and play it over your speakers.
 
 ## Installation
 

@@ -7,12 +7,10 @@
 morse2sfx(string, dit_length = 0.05, play = TRUE)
 }
 \arguments{
-\item{string}{Character. Some Morse Code expressed as 'dits' ('.')
-'dahs' ('-') and spaces (' '). Ideally produced by function
-\code{\link{txt2morse}}. See details.}
+\item{string}{Character. A Morse Code string. See details.}
 
-\item{dit_length}{Numeric. Length of a 'dit' in seconds. The length of a
-'dah' will be three times the \code{dit_length}.}
+\item{dit_length}{Numeric. Length of a dit in seconds. The length of a dah
+will be three times the \code{dit_length}.}
 
 \item{play}{Logical. Should sounds be played? Defaults to \code{TRUE}.
 Included for testing purposes.}
@@ -22,12 +20,16 @@ Nothing. Sounds will play if \code{play = TRUE}.
 }
 \description{
 Provide a Morse Code string and it will be played over your computer's
-speakers.
+speakers as dits (dots), dahs (dashes) and pauses.
 }
 \details{
 Only certain characters can be converted to and from Morse Code.
-See the inbuilt \code{\link{morse_lookup}} dataset.
+See the inbuilt \code{\link{morse_lookup}} dataset. The input will be
+composed of dits (or dots, '.'), dahs (or dashes, '-'), dividers around
+the dits and dahs that represent a single character ('/') and word
+dividers (' ', a space). Ideally it will have been produced using
+\code{\link{txt2morse}}.
 }
 \examples{
-\dontrun{txt2morse("hello there") |> morse2txt() |> morse2sfx}
+\dontrun{txt2morse("hello there!") |> morse2sfx()}
 }
