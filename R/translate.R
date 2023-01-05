@@ -27,9 +27,9 @@ txt2morse <- function(string) {
 
   string_split <- strsplit(toupper(string), "")[[1]]
   chars <- string_split[which(string_split %in% names(morse_lookup))]
-  mismatches <- setdiff(string_split, chars)
+  mismatches <- setdiff(string_split[which(string_split != " ")], chars)
 
-  if (length(mismatches != 0)) {
+  if (length(mismatches) != 0) {
     warning(
       "Some characters could not be matched to Morse Code: ",
       paste(mismatches, collapse = ", "), ".",

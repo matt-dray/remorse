@@ -22,24 +22,24 @@ library(remorse)
 [![Codecov test coverage](https://codecov.io/gh/matt-dray/remorse/branch/main/graph/badge.svg)](https://app.codecov.io/gh/matt-dray/remorse?branch=main)
 <!-- badges: end -->
 
-Convert from text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) (and vice versa) to sound.
+Use R to convert text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) (and vice versa) to sound.
 
 ## Installation
 
 You can install {remorse} from GitHub, which also installs [{sonify}](https://CRAN.R-project.org/package=sonify).
 
-```{reval=FALSE}
+```{r eval=FALSE}
 if (!require(remotes)) install.packages("remotes")
 remotes::install_github("matt-dray/remorse")
 library(remorse)
 ```
 
-## Example
+## Examples
 
 Text to Morse Code:
 
 ```{r}
-text_in <- "hello there"
+text_in <- "hello there!"
 morse <- txt2morse(text_in)
 morse
 ```
@@ -58,3 +58,9 @@ morse2sfx(morse)
 ```
 
 This will play the dits and dahs over your speaker.
+
+Check the full list of supported Morse Code:
+
+```{r}
+morse_lookup
+```
