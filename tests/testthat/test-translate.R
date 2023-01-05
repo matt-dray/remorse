@@ -80,3 +80,15 @@ test_that("each ditdah type gets played without error", {
   expect_invisible(.ditdah2sfx(" ", dit_length = small_dur, play = TRUE))
 
 })
+
+test_that("there's a warning if Morse can't be matched", {
+
+  expect_warning(txt2morse("hello!±§"))
+
+})
+
+test_that("stop for unmatched Morse", {
+
+  expect_error(morse2txt(". - .........."))
+
+})

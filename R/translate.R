@@ -7,7 +7,7 @@
 #' @param string Character.
 #'
 #' @details Only certain characters can be converted to and from Morse Code.
-#'     See the inbuilt \code{\link{lookup}} dataset.
+#'     See the inbuilt \code{\link{morse_lookup}} dataset.
 #'
 #' @return A character string.
 #'
@@ -25,9 +25,19 @@ txt2morse <- function(string) {
     stop("String must be a character vector of length 1", call. = FALSE)
   }
 
-  st_split <- strsplit(toupper(string), "")[[1]]
-  chars <- st_split[which(st_split %in% names(lookup))]
-  paste0(lookup[chars], collapse = " ")
+  string_split <- strsplit(toupper(string), "")[[1]]
+  chars <- string_split[which(string_split %in% names(morse_lookup))]
+  mismatches <- setdiff(string_split, chars)
+
+  if (length(mismatches != 0)) {
+    warning(
+      "Some characters could not be matched to Morse Code: ",
+      paste(mismatches, collapse = ", "), ".",
+      call. = FALSE
+    )
+  }
+
+  paste0(morse_lookup[chars], collapse = " ")
 
 }
 
@@ -39,7 +49,7 @@ txt2morse <- function(string) {
 #' @param string Character. Some text. See details.
 #'
 #' @details Only certain characters can be converted to and from Morse Code.
-#'     See the inbuilt \code{\link{lookup}} dataset.
+#'     See the inbuilt \code{\link{morse_lookup}} dataset.
 #'
 #' @return A character string.
 #'
@@ -61,9 +71,19 @@ morse2txt <- function(string) {
     stop("String can only contain '.', '-', ' ' (space).", call. = FALSE)
   }
 
+  morse_lookup_inv <- stats::setNames(names(morse_lookup), morse_lookup)
   chars <- strsplit(string, " ")[[1]]
-  lookup_inv <- setNames(names(lookup), lookup)
-  paste0(lookup_inv[chars], collapse = "")
+  mismatches <- unique(chars[!chars %in% morse_lookup])
+
+  if (length(mismatches) != 0) {
+    stop(
+      "Some of that Morse Code isn't recognised: ",
+      paste(mismatches, collapse = ", "), ".",
+      call. = FALSE
+    )
+  }
+
+  paste0(morse_lookup_inv[chars], collapse = "")
 
 }
 
@@ -81,7 +101,7 @@ morse2txt <- function(string) {
 #'     Included for testing purposes.
 #'
 #' @details Only certain characters can be converted to and from Morse Code.
-#'     See the inbuilt \code{\link{lookup}} dataset.
+#'     See the inbuilt \code{\link{morse_lookup}} dataset.
 #'
 #' @return Nothing. Sounds will play if \code{play = TRUE}.
 #'

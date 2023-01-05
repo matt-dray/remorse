@@ -26,7 +26,7 @@ speakers.
 }
 \details{
 Only certain characters can be converted to and from Morse Code.
-See the inbuilt \code{\link{lookup}} dataset.
+See the inbuilt \code{\link{morse_lookup}} dataset.
 }
 \examples{
 \dontrun{txt2morse("hello there") |> morse2txt() |> morse2sfx}
