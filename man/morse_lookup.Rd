@@ -14,6 +14,6 @@ International Morse Code.
 morse_lookup
 }
 \description{
-A mapping of Morse Code signals to letters, digits and punctuation..
+A mapping of Morse Code signals to letters, digits and punctuation.
 }
 \keyword{datasets}

@@ -15,8 +15,8 @@ coverage](https://codecov.io/gh/matt-dray/remorse/branch/main/graph/badge.svg)](
 <!-- badges: end -->
 
 Use R to convert text to [Morse
-Code](https://en.wikipedia.org/wiki/Morse_code) (and vice versa) to
-sound.
+Code](https://en.wikipedia.org/wiki/Morse_code) and play it over your
+speakers.
 
 ## Installation
 
@@ -37,7 +37,7 @@ Text to Morse Code:
 text_in <- "hello there!"
 morse <- txt2morse(text_in)
 morse
-#> [1] ".... . .-.. .-.. --- - .... . .-. . -.-.--"
+#> [1] "...././.-../.-../--- -/...././.-././-.-.--"
 ```
 
 And back again:
@@ -45,7 +45,7 @@ And back again:
 ``` r
 text_out <- morse2txt(morse)
 text_out
-#> [1] "HELLOTHERE!"
+#> [1] "HELLO THERE!"
 ```
 
 And from Morse to sound:
@@ -72,6 +72,6 @@ morse_lookup
 #>  "-...."  "--..."  "---.."  "----."  ".-..." ".----." ".--.-." "-.--.-" 
 #>        (        :        ,        =        !        .        -        * 
 #>  "-.--." "---..." "--..--"  "-...-" "-.-.--" ".-.-.-" "-....-"   "-..-" 
-#>        +        "        ?        / 
-#>  ".-.-." ".-..-." "..--.."  "-..-."
+#>        +        "        ?        /          
+#>  ".-.-." ".-..-." "..--.."  "-..-."      " "
 ```

@@ -7,7 +7,7 @@
 morse2txt(string)
 }
 \arguments{
-\item{string}{Character. Some text. See details.}
+\item{string}{Character. A Morse Code string. See details.}
 }
 \value{
 A character string.
@@ -18,8 +18,12 @@ text.
 }
 \details{
 Only certain characters can be converted to and from Morse Code.
-See the inbuilt \code{\link{morse_lookup}} dataset.
+See the inbuilt \code{\link{morse_lookup}} dataset. The input will be
+composed of dits (or dots, '.'), dahs (or dashes, '-'), dividers around
+the dits and dahs that represent a single character ('/') and word
+dividers (' ', a space). Ideally it will have been produced using
+\code{\link{txt2morse}}.
 }
 \examples{
-txt2morse("hello there") |> morse2txt()
+txt2morse("hello there!") |> morse2txt()
 }

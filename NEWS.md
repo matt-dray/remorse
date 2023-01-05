@@ -1,3 +1,7 @@
+# remorse 0.1.0
+
+* Spaces in the input text are now handled (#1).
+
 # remorse 0.0.0.9000
 
 * Setup basic package requirements.
