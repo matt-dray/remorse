@@ -130,24 +130,26 @@ morse2sfx <- function(string, dit_length = 0.05, play = TRUE) {
     stop("Argument 'play' must be logical (TRUE/FALSE).", call. = FALSE)
   }
 
-  if (play) {
+  dah_length <- dit_length * 3
 
-    dah_length <- dit_length * 3
-
-    if (ditdah == ".") {
+  if (ditdah == ".") {
+    if (play) {
       sonify::sonify(1, 1, duration = dit_length)
       Sys.sleep(dit_length)
     }
+  }
 
-    if (ditdah == "-") {
+  if (ditdah == "-") {
+    if (play) {
       sonify::sonify(1, 1, duration = dah_length)
       Sys.sleep(dit_length)
     }
+  }
 
-    if (ditdah == " ") {
+  if (ditdah == " ") {
+    if (play) {
       Sys.sleep(dah_length - dit_length)
     }
-
   }
 
 }
