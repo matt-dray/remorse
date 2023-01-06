@@ -15,8 +15,7 @@ coverage](https://codecov.io/gh/matt-dray/remorse/branch/main/graph/badge.svg)](
 <!-- badges: end -->
 
 Use R to convert text to [Morse
-Code](https://en.wikipedia.org/wiki/Morse_code) and play it over your
-speakers.
+Code](https://en.wikipedia.org/wiki/Morse_code) to audio.
 
 ## Installation
 
@@ -48,13 +47,11 @@ text_out
 #> [1] "HELLO THERE!"
 ```
 
-And from Morse to sound:
+And from Morse to audio (will play audio on your speakers):
 
 ``` r
 morse2sfx(morse)
 ```
-
-This will play the dits and dahs over your speaker.
 
 Check the full list of supported Morse Code:
 

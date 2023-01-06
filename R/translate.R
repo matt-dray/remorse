@@ -29,7 +29,7 @@ txt2morse <- function(string) {
   }
 
   string_split <- strsplit(toupper(string), "")[[1]]
-  chars <- string_split[which(string_split %in% names(morse_lookup))]
+  chars <- string_split[which(string_split %in% names(remorse::morse_lookup))]
   mismatches <- setdiff(string_split, chars)
 
   if (length(mismatches) != 0) {
@@ -40,7 +40,7 @@ txt2morse <- function(string) {
     )
   }
 
-  gsub("/ /", " ", paste0(morse_lookup[chars], collapse = "/"))
+  gsub("/ /", " ", paste0(remorse::morse_lookup[chars], collapse = "/"))
 
 }
 
@@ -78,9 +78,10 @@ morse2txt <- function(string) {
     stop("String can only contain '.', '-', '/', ' ' (space).", call. = FALSE)
   }
 
-  morse_lookup_inv <- stats::setNames(names(morse_lookup), morse_lookup)
+  morse_lookup_inv <-
+    stats::setNames(names(remorse::morse_lookup), remorse::morse_lookup)
   chars <- strsplit(gsub(" ", "/ /", string), "/")[[1]]
-  mismatches <- unique(chars[!chars %in% morse_lookup])
+  mismatches <- unique(chars[!chars %in% remorse::morse_lookup])
 
   if (length(mismatches) != 0) {
     stop(

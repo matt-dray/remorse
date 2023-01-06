@@ -1,3 +1,7 @@
+# remorse 0.1.1
+
+* Ensure that exported data is namespaced.
+
 # remorse 0.1.0
 
 * Spaces in the input text are now handled (#1).

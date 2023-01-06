@@ -22,7 +22,7 @@ library(remorse)
 [![Codecov test coverage](https://codecov.io/gh/matt-dray/remorse/branch/main/graph/badge.svg)](https://app.codecov.io/gh/matt-dray/remorse?branch=main)
 <!-- badges: end -->
 
-Use R to convert text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) and play it over your speakers.
+Use R to convert text to [Morse Code](https://en.wikipedia.org/wiki/Morse_code) to audio.
 
 ## Installation
 
@@ -51,13 +51,11 @@ text_out <- morse2txt(morse)
 text_out
 ```
 
-And from Morse to sound:
+And from Morse to audio (will play audio on your speakers):
 
 ```{r eval=FALSE}
 morse2sfx(morse)
 ```
-
-This will play the dits and dahs over your speaker.
 
 Check the full list of supported Morse Code:
 
